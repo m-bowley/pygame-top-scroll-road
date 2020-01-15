@@ -16,7 +16,7 @@ queue = [] # To be added when scrolling
 block_size = 2
 
 # Player actor and a speed to move it at
-player = Actor("car.png", (int(WIDTH/2 - 16), 390))
+player = Actor("car.png", (int(WIDTH/2 - 16), 390), anchor=("left", "top"))
 speed = 5
 
 # Initial population of the road and queue
@@ -35,7 +35,7 @@ def scroll_road():
         piece.top += block_size
     road.append(queue.pop(0)) # Move piece from queue to road
     road.pop(0) # Remove the bottom road piece
-    road[-1].top = 0
+    road[-1].top = 0 # An index of -1 is the last item in a list
     if len(queue) < 5:
         update_path() # If the queue is getting low update the path
 
